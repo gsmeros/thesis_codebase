@@ -1,0 +1,42 @@
+graph LR
+    %% User and iOS Frontend
+    User([User])
+    iOS[iOS App<br/>Swift/Xcode]
+    
+    %% Cloud Backend Components
+    subgraph Cloud["☁️ Cloud"]
+        FastAPI[FastAPI Server<br/>Python]
+        Firebase[(Firebase Database<br/>Movies & Ratings)]
+    end
+    
+    %% External API
+    subgraph External["External API"]
+        TMDB[TMDB API<br/>Movie Metadata]
+    end
+    
+    %% Model Training Pipeline
+    subgraph Training["Recommender Model Training"]
+        MovieLens[(MovieLens Dataset<br/>100K ratings)]
+        TuriCreate[TuriCreate<br/>Item-Based CF]
+    end
+    
+    %% Connections
+    User -->|interactions| iOS
+    iOS -->|REST API| FastAPI
+    iOS -.->|fetch posters| TMDB
+    
+    FastAPI -->|query/update| Firebase
+    FastAPI -->|load model| TuriCreate
+    
+    MovieLens -->|import data| Firebase
+    MovieLens -->|train model| TuriCreate
+    TuriCreate -->|export model| FastAPI
+    
+    %% Styling
+    classDef cloudBox fill:#e1f5ff,stroke:#0288d1,stroke-width:2px
+    classDef externalBox fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef trainingBox fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    
+    class FastAPI,Firebase cloudBox
+    class TMDB externalBox
+    class MovieLens,TuriCreate trainingBox

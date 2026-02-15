@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingsView" customModule="Movie_Recommender" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="ZRO-cd-yXb"/>
+                <outlet property="star1" destination="0kB-4N-wMS" id="RhM-Qg-Vob"/>
+                <outlet property="star2" destination="GDL-pW-Cwe" id="ln9-bY-cM4"/>
+                <outlet property="star3" destination="N27-ol-buW" id="IHA-p7-nhX"/>
+                <outlet property="star4" destination="qQd-H3-ak1" id="0SP-P1-Mpf"/>
+                <outlet property="star5" destination="nim-tP-jbC" id="s4o-9i-0RU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="696" height="225"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kB-4N-wMS">
+                    <rect key="frame" x="0.0" y="0.0" width="139" height="225"/>
+                    <state key="normal" image="star" catalog="system"/>
+                    <connections>
+                        <action selector="star1Pressed:" destination="-1" eventType="touchUpInside" id="9tp-eC-743"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDL-pW-Cwe">
+                    <rect key="frame" x="139" y="0.0" width="139.5" height="225"/>
+                    <state key="normal" image="star" catalog="system"/>
+                    <connections>
+                        <action selector="star2Pressed:" destination="-1" eventType="touchUpInside" id="JEM-wa-Ixk"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N27-ol-buW">
+                    <rect key="frame" x="278.5" y="0.0" width="139" height="225"/>
+                    <state key="normal" image="star" catalog="system"/>
+                    <connections>
+                        <action selector="star3Pressed:" destination="-1" eventType="touchUpInside" id="qb7-wD-DVI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQd-H3-ak1">
+                    <rect key="frame" x="417.5" y="0.0" width="139.5" height="225"/>
+                    <state key="normal" image="star" catalog="system"/>
+                    <connections>
+                        <action selector="star4Pressed:" destination="-1" eventType="touchUpInside" id="9j2-ag-TR5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nim-tP-jbC">
+                    <rect key="frame" x="557" y="0.0" width="139" height="225"/>
+                    <state key="normal" image="star" catalog="system"/>
+                    <connections>
+                        <action selector="star5Pressed:" destination="-1" eventType="touchUpInside" id="3GA-f0-Thg"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="qQd-H3-ak1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0p2-Ht-d63"/>
+                <constraint firstItem="N27-ol-buW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1bU-WC-whz"/>
+                <constraint firstItem="0kB-4N-wMS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5Gm-yQ-IJX"/>
+                <constraint firstItem="GDL-pW-Cwe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6td-6Z-lOg"/>
+                <constraint firstItem="N27-ol-buW" firstAttribute="width" secondItem="qQd-H3-ak1" secondAttribute="width" id="88s-ee-u5f"/>
+                <constraint firstItem="0kB-4N-wMS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Afx-Ff-xaD"/>
+                <constraint firstAttribute="bottom" secondItem="N27-ol-buW" secondAttribute="bottom" id="BqT-dW-7gX"/>
+                <constraint firstAttribute="bottom" secondItem="GDL-pW-Cwe" secondAttribute="bottom" id="CFy-DD-fwM"/>
+                <constraint firstAttribute="bottom" secondItem="qQd-H3-ak1" secondAttribute="bottom" id="RdH-Y1-KVX"/>
+                <constraint firstItem="0kB-4N-wMS" firstAttribute="width" secondItem="GDL-pW-Cwe" secondAttribute="width" id="aO7-lp-zeA"/>
+                <constraint firstItem="N27-ol-buW" firstAttribute="leading" secondItem="GDL-pW-Cwe" secondAttribute="trailing" id="evn-jc-US4"/>
+                <constraint firstItem="GDL-pW-Cwe" firstAttribute="width" secondItem="N27-ol-buW" secondAttribute="width" id="lXb-dZ-Rri"/>
+                <constraint firstItem="qQd-H3-ak1" firstAttribute="width" secondItem="nim-tP-jbC" secondAttribute="width" id="lbl-HE-fRb"/>
+                <constraint firstAttribute="bottom" secondItem="nim-tP-jbC" secondAttribute="bottom" id="mRi-hH-NRD"/>
+                <constraint firstAttribute="trailing" secondItem="nim-tP-jbC" secondAttribute="trailing" id="mnC-7t-APG"/>
+                <constraint firstAttribute="bottom" secondItem="0kB-4N-wMS" secondAttribute="bottom" id="rdX-M8-A8y"/>
+                <constraint firstItem="qQd-H3-ak1" firstAttribute="leading" secondItem="N27-ol-buW" secondAttribute="trailing" id="uZs-dl-foL"/>
+                <constraint firstItem="nim-tP-jbC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xLg-GD-HfR"/>
+                <constraint firstItem="nim-tP-jbC" firstAttribute="leading" secondItem="qQd-H3-ak1" secondAttribute="trailing" id="yUT-Ka-rog"/>
+                <constraint firstItem="GDL-pW-Cwe" firstAttribute="leading" secondItem="0kB-4N-wMS" secondAttribute="trailing" id="zWT-eE-cqN"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="340.57971014492756" y="359.93303571428572"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
+</document>

@@ -1,0 +1,48 @@
+graph TD
+    %% App Launch
+    Splash["Splash Screen<br/>(Launch Screen storyboard)<br/>Pre-load fetch"]
+
+    %% Authentication
+    Login["Login<br/>POST /login → Firebase Auth<br/>Αποθήκευση idToken"]
+    Register["Register<br/>POST /createAccount → Firebase Auth"]
+
+    %% Main Tab Bar
+    subgraph TabBar["Tab Bar (μετά τη σύνδεση)"]
+        TopRated["Top Rated<br/>GET /topRatedMovies<br/>UICollectionView"]
+        Search["Search<br/>GET /search?searchText=...<br/>Prefix matching"]
+        Recommendations["Recommendations<br/>GET /recommended<br/>TuriCreate model"]
+        RatedMovies["Rated Movies<br/>GET /getRatedMovies<br/>Ιστορικό βαθμολογιών"]
+    end
+
+    %% Detail Screen
+    Details["Movie Details<br/>TMDB API (απευθείας)<br/>Tagline, overview, genres,<br/>release date, poster"]
+
+    %% Rating Action
+    Rate["Rate Movie<br/>POST /rateMovie/{id}/{rating}<br/>Αποθήκευση στη Firebase"]
+
+    %% Flow connections
+    Splash -->|"αυτόματη μετάβαση"| Login
+    Login -->|"δεν έχει λογαριασμό"| Register
+    Register -->|"επιτυχής εγγραφή"| Login
+    Login -->|"επιτυχής σύνδεση"| TopRated
+
+    TopRated -->|"πάτημα σε ταινία"| Details
+    Search -->|"πάτημα σε ταινία"| Details
+    Recommendations -->|"πάτημα σε ταινία"| Details
+    RatedMovies -->|"πάτημα σε ταινία"| Details
+
+    Details -->|"βαθμολόγηση"| Rate
+    Rate -->|"επιστροφή"| Details
+
+    %% Styling
+    classDef authScreen fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef tabScreen fill:#e1f5ff,stroke:#0288d1,stroke-width:2px
+    classDef detailScreen fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    classDef actionScreen fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    classDef launchScreen fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+
+    class Splash launchScreen
+    class Login,Register authScreen
+    class TopRated,Search,Recommendations,RatedMovies tabScreen
+    class Details detailScreen
+    class Rate actionScreen
